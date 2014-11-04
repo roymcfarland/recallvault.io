@@ -1,7 +1,8 @@
 {
-	"dependencies": {
-		"express": "^4",
-		"jade": "^1",
-		"body-parser": "^1"
-	}
+  "dependencies": {
+    "express": "^4",
+    "jade": "^1",
+    "body-parser": "^1",
+    "request": "~2.47.0"
+  }
 }

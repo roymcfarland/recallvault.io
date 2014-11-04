@@ -1,4 +1,7 @@
 extends layout
 
 block content
-	h1 Hold on to Your Butts!
+	.container
+		form#signup-form(action="/search", method="post", role="form")
+			input(type="text", name="searchterm", placeholder="What do you want to know about?")
+			input.btn.btn-success(type="submit")
