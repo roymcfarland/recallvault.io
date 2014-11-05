@@ -8,7 +8,7 @@ var apiController = {
 		recollie(searchTerm, function(results){
 			var resultList = results.success;
 			var listofResults = resultList.results;
-			console.log(listofResults);
+			console.log(listofResults.length);
 			res.render('search', {
 				results: listofResults
 			});
