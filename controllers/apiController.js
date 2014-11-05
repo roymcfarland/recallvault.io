@@ -1,13 +1,17 @@
 var request = require('request');
+var recollie = require('recollie');
+var _ = require('underscore');
 
 var apiController = {
 	search: function(req, res) {
 		var searchTerm = req.body.searchterm;
-		request('http://api.usa.gov/recalls/search.json?query=' + searchTerm, function(error, response, body){
-			if(!error && response.statusCode == 200) {
-				var results = JSON.parse(body);
-				res.send(results);
-			}
+		recollie(searchTerm, function(results){
+			var resultList = results.success;
+			var listofResults = resultList.results;
+			console.log(listofResults);
+			res.render('search', {
+				results: listofResults
+			});
 		});
 	}
 };

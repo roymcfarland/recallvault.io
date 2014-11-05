@@ -1,8 +1,10 @@
 {
   "dependencies": {
+    "body-parser": "^1",
     "express": "^4",
     "jade": "^1",
-    "body-parser": "^1",
-    "request": "~2.47.0"
+    "recollie": "^1.0.1",
+    "request": "~2.47.0",
+    "underscore": "^1.7.0"
   }
 }

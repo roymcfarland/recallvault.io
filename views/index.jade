@@ -1,7 +1,11 @@
 extends layout
 
 block content
-	.container
-		form#signup-form(action="/search", method="post", role="form")
-			input(type="text", name="searchterm", placeholder="What do you want to know about?")
-			input.btn.btn-success(type="submit")
+	body
+		.container
+			div#signup-form.row
+				form.col-sm-6.col-sm-offset-3(action="/search", method="post", role="form")
+					.form-group
+						input.form-control(type="text", name="searchterm", placeholder="Search Term(s)")
+					.form-group.text-right
+						button#search.btn.btn-primary<span class="glyphicon glyphicon-search"></span> Submit

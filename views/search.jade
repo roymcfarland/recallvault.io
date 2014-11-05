@@ -1,0 +1,32 @@
+extends layout
+
+block content
+	for result in results
+		//- if !result
+		//- 	h1 No Results Found
+		if result.organization === 'NHTSA'
+			h1=result.manufacturer
+			h5=result.recall_date
+			h5=result.component_description
+			h5=result.consequence_summary
+			a(href=result.recall_url)
+				h5=result.recall_url
+		if result.organization === 'CPSC'
+			h1=result.manufacturers
+			h5=result.recall_date
+			h5=result.product_types
+			h5=result.hazards
+			a(href=result.recall_url)
+				h5=result.recall_url
+		if result.organization === 'FDA'
+			h2=result.summary
+			h5=result.recall_date
+			h5: em=result.description
+			a(href=result.recall_url)
+				h5=result.recall_url
+		if result.organization === 'USDA'
+			h2=result.summary
+			h5=result.recall_date
+			h5: em=result.description
+			a(href=result.recall_url)
+				h5=result.recall_url
