@@ -7,28 +7,40 @@ block content
 		//- if !result in results
 		//- 	h1 No Results Found
 		if result.organization === 'NHTSA'
-			h1=result.manufacturer
-			h5=result.recall_date
-			h5=result.component_description
-			h5=result.consequence_summary
-			a(href=result.recall_url)
-				h5=result.recall_url
+			div.panel.panel-default
+				div.panel-body
+					img.image(src='images/NHTSA.jpg' class='img-responsive' alt='Responsive image')
+					h3='Manufacturer: ' + result.manufacturer
+					h6='Recall Issued: ' + result.recall_date
+					h6='Product: ' + result.component_description
+					h6='Hazard: ' + result.consequence_summary
+					a(href=result.recall_url)
+						h6=result.recall_url
 		if result.organization === 'CPSC'
-			h1=result.manufacturers
-			h5=result.recall_date
-			h5=result.product_types
-			h5=result.hazards
-			a(href=result.recall_url)
-				h5=result.recall_url
+			div.panel.panel-default
+				div.panel-body
+					img.image(src='images/CPSC.jpg' class='img-responsive' alt='Responsive image')
+					h3='Manufacturer: ' + result.manufacturers
+					h6='Recall Issued: ' + result.recall_date
+					h6='Product: ' + result.product_types
+					h6='Hazard: ' + result.hazards
+					a(href=result.recall_url)
+						h6=result.recall_url
 		if result.organization === 'FDA'
-			h2=result.summary
-			h5=result.recall_date
-			h5: em=result.description
-			a(href=result.recall_url)
-				h5=result.recall_url
+			div.panel.panel-default
+				div.panel-body
+					img.image(src='images/FDA.jpg' class='img-responsive' alt='Responsive image')
+					h3=result.summary
+					h6=result.recall_date
+					h6: em=result.description
+					a(href=result.recall_url)
+						h6=result.recall_url
 		if result.organization === 'USDA'
-			h2=result.summary
-			h5=result.recall_date
-			h5: em=result.description
-			a(href=result.recall_url)
-				h5=result.recall_url
+			div.panel.panel-default
+				div.panel-body
+					img.image(src='images/USDA.jpeg' class='img-responsive' alt='Responsive image')
+					h3=result.summary
+					h6=result.recall_date
+					h6: em=result.description
+					a(href=result.recall_url)
+						h6=result.recall_url

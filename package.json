@@ -5,6 +5,7 @@
     "jade": "^1",
     "recollie": "^1.0.1",
     "request": "~2.47.0",
-    "underscore": "^1.7.0"
+    "underscore": "^1.7.0",
+    "xml2json": "^0.5.1"
   }
 }
