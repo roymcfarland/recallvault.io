@@ -24,4 +24,7 @@ var apiController = {
 	}
 };
 
+// apiController.rssScraper();
+// setInterval(apiController.rssScraper(), 10000);
+
 module.exports = apiController;

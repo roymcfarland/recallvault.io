@@ -9,3 +9,18 @@ block content
 						input.form-control(type="text", name="searchterm", placeholder="Search Term(s)")
 					.form-group.text-right
 						button#search.btn.btn-primary<span class="glyphicon glyphicon-search"></span> Submit
+
+			//- Form for handling existing user logins.
+			h1 Existing Users
+			form(action="/auth/login", method="post")
+				input(type="text", name="username", placeholder="Username")
+				input(type="password", name="password", placeholder="Password")
+				input(type="submit")
+
+			//- Form for allowing new users to register.
+			h1 Register
+			form(action="/auth/signup", method="post")
+				input(type="text", name="username", placeholder="Username")
+				input(type="email", name="email", placeholder="Email")
+				input(type="password", name="password", placeholder="Password")
+				input(type="submit")

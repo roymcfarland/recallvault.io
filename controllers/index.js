@@ -1,6 +1,8 @@
 var indexController = {
 	index: function(req, res) {
-		res.render('index');
+		res.render('index', {
+			user: req.user
+		});
 	}
 };
 
