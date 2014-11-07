@@ -22,7 +22,7 @@ var performLogin = function(req, res, next, user){
     if(err) return next(err);
 
     // Otherwise, send the user to the homepage.
-    return res.redirect('/');
+    return res.redirect('/profile');
   });
 };
 
@@ -131,7 +131,7 @@ var authenticationController = {
     req.logout();
 
     // Redirect back to the login page
-    res.redirect('/auth/login');
+    res.redirect('/');
   }
 };
 

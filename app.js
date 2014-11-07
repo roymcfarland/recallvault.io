@@ -47,6 +47,8 @@ app.post('/search', apiController.search);
 app.get('/auth/login', authenticationController.login);
 app.post('/auth/login', authenticationController.processLogin);
 app.post('/auth/signup', authenticationController.processSignup);
+app.get('/profile', indexController.profile);
+app.post('/api/addProduct', apiController.addProduct);
 app.get('/auth/logout', authenticationController.logout);
 
 // ***** IMPORTANT ***** //
