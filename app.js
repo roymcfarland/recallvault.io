@@ -43,7 +43,8 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 app.get('/', indexController.index);
-// app.get('/auth/login', authenticationController.login);
+app.post('/search', apiController.search);
+app.get('/auth/login', authenticationController.login);
 app.post('/auth/login', authenticationController.processLogin);
 app.post('/auth/signup', authenticationController.processSignup);
 app.get('/auth/logout', authenticationController.logout);
@@ -52,9 +53,6 @@ app.get('/auth/logout', authenticationController.logout);
 // Prevents unauthorized access to any route handler defined
 // after this call to .use()
 app.use(passportConfig.ensureAuthenticated);
-
-// Routes
-app.post('/search', apiController.search);
 
 
 var server = app.listen(7398, function() {

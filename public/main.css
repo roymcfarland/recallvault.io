@@ -5,3 +5,7 @@
 .image {
 	width: 100px;
 }
+
+.toHide {
+	color: black;
+}
