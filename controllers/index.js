@@ -8,7 +8,7 @@ var indexController = {
 		});
 	},
 	profile: function(req, res) {
-		var findOneProfile = User.findOne({_id: req.user.id}).populate('products.product', '', 'product').exec(function(err, doc){
+		var findOneProfile = User.findOne({_id: req.user.id}).populate('products', '', 'product').exec(function(err, doc){
 			console.log(doc);
 			res.render('profile', {
 				user: doc

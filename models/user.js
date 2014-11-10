@@ -23,9 +23,9 @@ var userSchema = mongoose.Schema({
     type: String,
     required: true
   },
-  products: [{
-    product: mongoose.Schema.ObjectId
-  }]
+  products: [
+    mongoose.Schema.ObjectId
+  ]
 });
 
 /**

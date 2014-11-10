@@ -12,7 +12,11 @@
 	-moz-background-size: cover;
 	-o-background-size: cover;
 	background-size: cover;
-	padding: 150px 0px;
+	padding: 200px 0px;
+}
+
+.title-thumb {
+	color: #428BCA;
 }
 
 .navbar-fixed-bottom {

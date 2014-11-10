@@ -32,10 +32,12 @@ $(document).on('ready', function(){
 
 		// Pull out the values from the form fields manually
 		var productManufacturer  = $(this).find('[name=manufacturer]').val();
+		var productName = $(this).find('[name=product]').val();
 		
 		// Build an object out of that data
 		var productData = {
 			manufacturer: productManufacturer,
+			product: productName
 		};
 
 		// Print the trackData object to browser

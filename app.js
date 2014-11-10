@@ -47,14 +47,15 @@ app.post('/search', apiController.search);
 app.get('/auth/login', authenticationController.login);
 app.post('/auth/login', authenticationController.processLogin);
 app.post('/auth/signup', authenticationController.processSignup);
-app.get('/profile', indexController.profile);
-app.post('/api/addProduct', apiController.addProduct);
-app.get('/auth/logout', authenticationController.logout);
 
 // ***** IMPORTANT ***** //
 // Prevents unauthorized access to any route handler defined
 // after this call to .use()
 app.use(passportConfig.ensureAuthenticated);
+
+app.get('/profile', indexController.profile);
+app.post('/api/addProduct', apiController.addProduct);
+app.get('/auth/logout', authenticationController.logout);
 
 
 var server = app.listen(7398, function() {

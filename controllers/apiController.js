@@ -47,9 +47,7 @@ var apiController = {
 			console.log('Product saved:', result);
 			// res.send(result);
 
-			req.user.products.push({
-				product: result._id
-			});
+			req.user.products.push(result._id);
 			req.user.save(function(err, doc){
 				console.log(doc)
 				// console.log(err)
