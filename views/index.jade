@@ -1,94 +1,77 @@
 extends layout
 
 block content
-	body
-		nav.navbar.navbar-inverse(role='navigation')
-			.navbar-header
-				.container-fluid
-					button.navbar-toggle.collapsed(type='button', data-toggle='collapse', data-target='#bs-example-navbar-collapse-1')
-						span.sr-only Toggle navigation
-						span.icon-bar
-						span.icon-bar
-						span.icon-bar
-					a.navbar-brand(href='#') Recall Vault
-			#bs-example-navbar-collapse-1.collapse.navbar-collapse
-				ul.nav.navbar-nav.navbar-right
-					li
-						a Register
-					li
-						a Login
-					//- .container
-					//- 	.row
-					//- 		.span12
-					//- 			#loginModal.
-					//- 			.modal-header
-					//- 				button.close(type='button', data-dismiss='modal', aria-hidden='true') ×
-					//- 				h3 Have an Account?
-					//- 			.modal-body
-					//- 				.well
-					//- 				ul.nav.nav-tabs
-					//- 					li.active
-					//- 						a(href='#login', data-toggle='tab') Login
-					//- 					li
-					//- 						a(href='#create', data-toggle='tab') Create Account
-					//- 				#myTabContent.tab-content
-					//- 					#login.tab-pane.active.in
-					//- 						form.form-horizontal(action='', method='POST')
-					//- 							fieldset
-					//- 								#legend
-					//- 									legend. Login
-					//- 								.control-group
-					//- 									//- Username 
-					//- 									label.control-label(for='username') Username
-					//- 									.controls
-					//- 									input#username.input-xlarge(type='text', name='username', placeholder='')
-					//- 								.control-group
-					//- 									//- Password
-					//- 									label.control-label(for='password') Password
-					//- 									.controls
-					//- 										input#password.input-xlarge(type='password', name='password', placeholder='')
-					//- 								.control-group
-					//- 									//- Button 
-					//- 									.controls
-					//- 									button.btn.btn-success Login
-					//- 						#create.tab-pane.fade
-					//- 						form#tab
-					//- 							.form-wrapper
-					//- 								label Username
-					//- 								input.input-xlarge(type='text', value='')
-					//- 							.form-wrapper
-					//- 								label First Name
-					//- 								input.input-xlarge(type='text', value='')
-					//- 							.form-wrapper
-					//- 								label Last Name
-					//- 								input.input-xlarge(type='text', value='')
-					//- 							.form-wrapper
-					//- 								label Email
-					//- 								input.input-xlarge(type='text', value='')
-					//- 							.form-wrapper
-					//- 								label Address
-					//- 								textarea.input-xlarge(value='Smith', rows='3')
-					//- 							.button-wrapper
-					//- 							button.btn.btn-primary Create Account
+	nav.navbar.navbar-default(role='navigation')
+		.navbar-header
+			.container-fluid
+				button.navbar-toggle.collapsed(type='button', data-toggle='collapse', data-target='#bs-example-navbar-collapse-1')
+					span.sr-only Toggle navigation
+					span.icon-bar
+					span.icon-bar
+					span.icon-bar
+				a.navbar-brand(href='#') Recall Vault
+		#bs-example-navbar-collapse-1.collapse.navbar-collapse
+			ul.nav.navbar-nav.navbar-right
+				li
+					a(data-toggle="modal", data-target="#signup-modal") Signup
+				li
+					a(data-toggle="modal", data-target="#login-modal") Login
+
+	.jumbotron
 		.container
-			div#signup-form.row
+			.signup-form.row
 				form.col-sm-6.col-sm-offset-3(action="/search", method="post", role="form")
 					.form-group
 						input.form-control(type="text", name="searchterm", placeholder="Search Term(s)")
 					.form-group.text-right
 						button#search.btn.btn-primary<span class="glyphicon glyphicon-search"></span> Submit
+	.row
+		.container
+			.cover-thumbs.thumbnail.col-sm-4
+				.caption
+					h4 Placeholder
+					p  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Harum minus libero molestias. Sequi sit aliquam harum veniam accusantium labore quibusdam quas odio omnis recusandae quis ipsum atque quaerat, id necessitatibus!
+			.cover-thumbs.thumbnail.col-sm-4
+				.caption
+					h4 Consumer Safety Simplified
+					p  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Harum minus libero molestias. Sequi sit aliquam harum veniam accusantium labore quibusdam quas odio omnis recusandae quis ipsum atque quaerat, id necessitatibus!
+			.cover-thumbs.thumbnail.col-sm-4
+				.caption
+					//- i.fa.fa-home.fa-5x
+					h4 Placeholder
+					p  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Harum minus libero molestias. Sequi sit aliquam harum veniam accusantium labore quibusdam quas odio omnis recusandae quis ipsum atque quaerat, id necessitatibus!
 
-			//- Form for handling existing user logins.
-			h1 Existing Users
-			form(action="/auth/login", method="post")
-				input(type="text", name="username", placeholder="Username")
-				input(type="password", name="password", placeholder="Password")
-				input(type="submit")
+	#signup-modal.modal.fade
+		.modal-dialog
+			form#signup-form.form(action="/auth/signup", method="post")
+				.modal-content
+					.modal-header
+						button.close(data-dismiss="modal") &times;
+						h4.modal-title Signup
+					.modal-body
+						.form-group
+							input.form-control(type="text", name="username", placeholder="Username")
+						.form-group
+							input.form-control(type="email", name="email", placeholder="Email")
+						.form-group
+							input.form-control(type="password", name="password", placeholder="Password")
+						.form-group
+							input#signup-submit-button.form-control(type="submit")
 
-			//- Form for allowing new users to register.
-			h1 Register
-			form(action="/auth/signup", method="post")
-				input(type="text", name="username", placeholder="Username")
-				input(type="email", name="email", placeholder="Email")
-				input(type="password", name="password", placeholder="Password")
-				input(type="submit")
+	#login-modal.modal.fade
+		.modal-dialog
+			form#login-form.form(action="/auth/login", method="post")
+				.modal-content
+					.modal-header
+						button.close(data-dismiss="modal") &times;
+						h4.modal-title Login
+					.modal-body
+						.form-group
+							input.form-control(type="text", name="username", placeholder="Username")
+						.form-group
+							input.form-control(type="password", name="password", placeholder="Password")
+						.form-group
+							input#login-submit-button.form-control(type="submit")
+
+	nav.navbar.navbar-default.navbar-fixed-bottom(role="navigation")
+		.container

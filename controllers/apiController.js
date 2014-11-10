@@ -59,7 +59,7 @@ var apiController = {
 	}
 };
 
-apiController.rssScraper();
+// apiController.rssScraper();
 // setInterval(apiController.rssScraper, 10000);
 
 module.exports = apiController;

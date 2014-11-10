@@ -1,5 +1,18 @@
-#signup-form {
-	margin-top: 25%;
+.navbar {
+	margin-bottom: -20px;
+}
+
+.cover-thumbs {
+	/*margin: 0 1% 0 0;*/
+}
+
+.jumbotron {
+	background: url('images/factory2-bw.jpg') no-repeat center center;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+	padding: 150px 0px;
 }
 
 .image {
