@@ -19,12 +19,12 @@ block content
 
 	.jumbotron
 		.container
-			.signup-form.row
+			.search-form.row
 				form.col-sm-6.col-sm-offset-3(action="/search", method="post", role="form")
 					.form-group
 						input.form-control(type="text", name="searchterm", placeholder="Search Term(s)")
 					.form-group.text-right
-						button#search.btn.btn-primary<span class="glyphicon glyphicon-search"></span> Submit
+						button.btn.btn-primary<span class="glyphicon glyphicon-search"></span> Submit
 	.row
 		.container
 			.cover-thumbs.thumbnail.col-sm-4
@@ -41,6 +41,7 @@ block content
 					h4 Placeholder
 					p  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Harum minus libero molestias. Sequi sit aliquam harum veniam accusantium labore quibusdam quas odio omnis recusandae quis ipsum atque quaerat, id necessitatibus!
 
+	//- Modal for new users to signup
 	#signup-modal.modal.fade
 		.modal-dialog
 			form#signup-form.form(action="/auth/signup", method="post")
@@ -56,8 +57,9 @@ block content
 						.form-group
 							input.form-control(type="password", name="password", placeholder="Password")
 						.form-group
-							input#signup-submit-button.form-control(type="submit")
+							input.form-control.btn.btn-success(type="submit")
 
+	//- Modal for exisiting users to login
 	#login-modal.modal.fade
 		.modal-dialog
 			form#login-form.form(action="/auth/login", method="post")
@@ -71,7 +73,16 @@ block content
 						.form-group
 							input.form-control(type="password", name="password", placeholder="Password")
 						.form-group
-							input#login-submit-button.form-control(type="submit")
+							input.form-control.btn.btn-success(type="submit")
 
 	nav.navbar.navbar-default.navbar-fixed-bottom(role="navigation")
-		.container
+		.container-fluid
+			ul.nav.navbar-nav.navbar-left
+				li
+					a About
+				li
+					a FAQ
+				li
+					a Contact
+				li
+					a Privacy

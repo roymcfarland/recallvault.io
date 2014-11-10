@@ -2,8 +2,8 @@
 	margin-bottom: -20px;
 }
 
-.cover-thumbs {
-	/*margin: 0 1% 0 0;*/
+#search-form {
+	margin-top: 20%;
 }
 
 .jumbotron {
@@ -13,6 +13,10 @@
 	-o-background-size: cover;
 	background-size: cover;
 	padding: 150px 0px;
+}
+
+.navbar-fixed-bottom {
+	padding-top: 2%;
 }
 
 .image {

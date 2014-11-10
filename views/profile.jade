@@ -1,49 +1,77 @@
 extends layout
 
 block content
-	body
-		nav.navbar.navbar-inverse(role='navigation')
-			.navbar-header
-				.container-fluid
-					button.navbar-toggle.collapsed(type='button', data-toggle='collapse', data-target='#bs-example-navbar-collapse-1')
-						span.sr-only Toggle navigation
-						span.icon-bar
-						span.icon-bar
-						span.icon-bar
-					a.navbar-brand(href='#') Recall Vault
-			#bs-example-navbar-collapse-1.collapse.navbar-collapse
-				ul.nav.navbar-nav.navbar-right
-					if !user
-						li
-							a No user exists
-					else 
-						li
-							a Welcome #{user.username}
+	nav.navbar.navbar-default(role='navigation')
+		.navbar-header
+			.container-fluid
+				button.navbar-toggle.collapsed(type='button', data-toggle='collapse', data-target='#bs-example-navbar-collapse-1')
+					span.sr-only Toggle navigation
+					span.icon-bar
+					span.icon-bar
+					span.icon-bar
+				a.navbar-brand(href='#') Recall Vault
+		#bs-example-navbar-collapse-1.collapse.navbar-collapse
+			ul.nav.navbar-nav.navbar-right
+				if !user
 					li
-						a Add to Library
+						a No user exists
+				else 
 					li
-						a(href='/auth/logout') Logout
+						a Welcome #{user.username}
+				li
+					a(data-toggle="modal", data-target="#new-product-modal") Add to Library
+				li
+					a(href='/auth/logout') Logout
 
-		.container
-			div#signup-form.row
-				form.col-sm-6.col-sm-offset-3(action="/search", method="post", role="form")
-					.form-group
-						input.form-control(type="text", name="searchterm", placeholder="Search Term(s)")
-					.form-group.text-right
-						button#search.btn.btn-primary<span class="glyphicon glyphicon-search"></span> Submit
+	.container
+		#search-form.row
+			form.col-sm-6.col-sm-offset-3(action="/search", method="post", role="form")
+				.form-group
+					input.form-control(type="text", name="searchterm", placeholder="Search Term(s)")
+				.form-group.text-right
+					button.btn.btn-primary<span class="glyphicon glyphicon-search"></span> Submit
 
-			//- h6: em #{user}
-			
-			//- h3 Product List
-			
-			//- //- Placeholder for where products go 
-			//- ul#product-list
+	//- h6: em #{user}
+	
+	//- h3 Product List
+	
+	//- //- Placeholder for where products go 
+	//- ul#product-list
 
-			//- Add Products
-			form#new-product
-				input(type="text", name="manufacturer", placeholder="manufacturer")
-				input(type="submit")
+	//- //- Add Products
+	//- form#new-product
+	//- 	input(type="text", name="manufacturer", placeholder="manufacturer")
+	//- 	input(type="submit")
 
 
-		for product in user.products
-			h3= product
+	for product in user.products
+		h3= product
+
+	//- Modal for adding new products to user library
+	#new-product-modal.modal.fade
+		.modal-dialog
+			form#new-product.form(action="", method="post")
+				.modal-content
+					.modal-header
+						button.close(data-dismiss="modal") &times;
+						h4.modal-title Add Product to Your Library
+					.modal-body
+						.form-group
+							input.form-control(type="text", name="manufacturer", placeholder="Manufacturer")
+						.form-group
+							input.form-control(type="text", name="product", placeholder="Name of Product")
+						.form-group
+							input.form-control.btn.btn-success(type="submit")
+
+	nav.navbar.navbar-default.navbar-fixed-bottom(role="navigation")
+		.container-fluid
+			.navbar-footer
+				ul.nav.navbar-nav.navbar-left
+					li
+						a About
+					li
+						a FAQ
+					li
+						a Contact
+					li
+						a Privacy
