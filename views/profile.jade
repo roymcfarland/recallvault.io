@@ -26,13 +26,15 @@ block content
 
 	//- Sidebar
 	.container-fluid
-			#product-library.col-sm-3.sidebar
-				ul.nav.nav-sidebar
+			#product-container.col-sm-3.sidebar
+				ul#product-list.nav.nav-sidebar
 					li
 						a My Product Library
 					for product in user.products
-						li
-							a= '- ' + product.manufacturer + ' ' + product.product
+						li(data-id='#{product._id}')
+							a= '- ' + product.manufacturer + ' ' + product.product + ' '
+								span(style="cursor:pointer").deleteProduct.glyphicon.glyphicon-remove  
+				ul.nav.nav-sidebar
 					li
 						a(data-toggle="modal", data-target="#new-product-modal") + Add New Product
 	//- Search box
@@ -42,14 +44,6 @@ block content
 				input.form-control(type="text", name="searchterm", placeholder="Search Term(s)")
 			.form-group.text-right
 				button.btn.btn-primary<span class="glyphicon glyphicon-search"></span> Submit
-
-
-
-	//- h3 My Product Library
-
-	//- for product in user.products
-	//- 	h5= product.manufacturer
-	//- 	h5= product.product
 
 	//- Modal for adding new products to user library
 	#new-product-modal.modal.fade

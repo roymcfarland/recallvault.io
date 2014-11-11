@@ -55,6 +55,7 @@ app.use(passportConfig.ensureAuthenticated);
 
 app.get('/profile', indexController.profile);
 app.post('/api/addProduct', apiController.addProduct);
+app.delete('/api/removeProduct/:id', apiController.removeProduct);
 app.get('/auth/logout', authenticationController.logout);
 
 

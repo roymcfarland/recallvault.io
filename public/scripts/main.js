@@ -1,16 +1,15 @@
 var renderProduct = function(productData){
 
-	// Generate a new List Item via jQuery
+	// Generate a new Product item via jQuery
 	var el = $('<li>');
 
 	// Set an attribute on the main containing
-	// li that will let us access the track's
+	// <li> that will let us access the product's
 	// specific database ID
 	el.attr('data-id', productData._id);
 
-	// Append elements to the LI that will help
-	// display the basics of a track
-	el.append('<h4>' + productData.manufacturer + '</h4>');
+	// Append elements to the <li>
+	el.append('- ' + productData.manufacturer + ' ' + productData.product + '<span class="deleteProduct glyphicon glyphicon-remove></span>');
 
 	// Append some action items to this track
 	el.append('<button class="btn btn-danger delete">Delete</button>');
@@ -26,8 +25,6 @@ var renderProduct = function(productData){
 $(document).on('ready', function(){
 
 	$('#new-product').on('submit', function(e){
-		// Don't let the browser submit the form;
-		// we want to handle it internally
 		e.preventDefault();
 
 		// Pull out the values from the form fields manually
@@ -58,5 +55,22 @@ $(document).on('ready', function(){
 
 	});
 
+	/**
+	 * Used to remove a specific product item from DOM
+	 * @return {} when remove button is clicked
+	 */
+	$(document).on('click', '.deleteProduct', function(e){
+		e.preventDefault();
+		var dataId= $(this).closest('li').data('id');
+		console.log(dataId)
+		$(this).closest('li').remove();
+		$.ajax({
+			url: '/api/removeProduct/' + dataId,
+			type: "delete",
+			success: function(data) {
+				console.log(data)
+			}
+		})
+	});
 
 });

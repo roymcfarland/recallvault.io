@@ -35,7 +35,11 @@
 	color: black;
 }
 
-#product-library {
+#product-list {
+
+}
+	
+#product-container {
 	position: fixed;
 	top: 51px;
 	bottom: 0;
@@ -45,6 +49,7 @@
 	background-color: #f5f5f5;
 	border-right: 1px solid #eee;
 }
+
 
 #search-form {
 	margin-left: 40%;
