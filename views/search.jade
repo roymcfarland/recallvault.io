@@ -1,58 +1,79 @@
 extends layout
 
 block content
-	body
-		nav.navbar.navbar-inverse(role='navigation')
-			.navbar-header
-				.container-fluid
-					button.navbar-toggle.collapsed(type='button', data-toggle='collapse', data-target='#bs-example-navbar-collapse-1')
-						span.sr-only Toggle navigation
-						span.icon-bar
-						span.icon-bar
-						span.icon-bar
-					a.navbar-brand(href='#') Recall Vault
-					#bs-example-navbar-collapse-1.collapse.navbar-collapse
+	//- Navbar Top
+	nav.navbar.navbar-default(role='navigation')
+		.navbar-header
+			.container-fluid
+				button.navbar-toggle.collapsed(type='button', data-toggle='collapse', data-target='#bs-example-navbar-collapse-1')
+					span.sr-only Toggle navigation
+					span.icon-bar
+					span.icon-bar
+					span.icon-bar
+				a.navbar-brand(href='#') Recall Vault
+		#bs-example-navbar-collapse-1.collapse.navbar-collapse
+			div.nav.navbar-nav.navbar-right(role='search')
+				form#global-nav-search.t1-form.form-search.js-search-form(action='/search', method="post", role="form")
+					input#search-query.search-input(type="text", name="searchterm", placeholder="Search Term(s)")
+					span.search-icon.js-search-action
+						i.fa.fa-search.Icon.Icon--search.nav-search(type='submit', tabindex='-1')
 	
-	if results.length == 0
-		h1 No Results Found 
-	for result in results
-		//- if !result in results
-		//- 	h1 No Results Found
-		if result.organization === 'NHTSA'
-			div.panel.panel-default
-				div.panel-body
-					img.image(src='images/NHTSA.jpg' class='img-responsive' alt='Responsive image')
-					h3='Manufacturer: ' + result.manufacturer
-					h6='Recall Issued: ' + result.recall_date
-					h6='Product: ' + result.component_description
-					h6='Hazard: ' + result.consequence_summary
-					a(href=result.recall_url)
-						h6=result.recall_url
-		if result.organization === 'CPSC'
-			div.panel.panel-default
-				div.panel-body
-					img.image(src='images/CPSC.jpg' class='img-responsive' alt='Responsive image')
-					h3='Manufacturer: ' + result.manufacturers
-					h6='Recall Issued: ' + result.recall_date
-					h6='Product: ' + result.product_types
-					h6='Hazard: ' + result.hazards
-					a(href=result.recall_url)
-						h6=result.recall_url
-		if result.organization === 'FDA'
-			div.panel.panel-default
-				div.panel-body
-					img.image(src='images/FDA.jpg' class='img-responsive' alt='Responsive image')
-					h3=result.summary
-					h6=result.recall_date
-					h6: em=result.description
-					a(href=result.recall_url)
-						h6=result.recall_url
-		if result.organization === 'USDA'
-			div.panel.panel-default
-				div.panel-body
-					img.image(src='images/USDA.jpeg' class='img-responsive' alt='Responsive image')
-					h3=result.summary
-					h6=result.recall_date
-					h6: em=result.description
-					a(href=result.recall_url)
-						h6=result.recall_url
+	.container.resultsList
+		if results.length == 0
+			h1 No Results Found 
+		for result in results
+			//- if !result in results
+			//- 	h1 No Results Found
+			if result.organization === 'NHTSA'
+				div.panel.panel-default
+					div.panel-body
+						img.image(src='images/NHTSA.jpg' class='img-responsive' alt='Responsive image')
+						h3='Manufacturer: ' + result.manufacturer
+						h6='Recall Issued: ' + result.recall_date
+						h6='Product: ' + result.component_description
+						h6='Hazard: ' + result.consequence_summary
+						a(href=result.recall_url)
+							h6=result.recall_url
+			if result.organization === 'CPSC'
+				div.panel.panel-default
+					div.panel-body
+						img.image(src='images/CPSC.jpg' class='img-responsive' alt='Responsive image')
+						h3='Manufacturer: ' + result.manufacturers
+						h6='Recall Issued: ' + result.recall_date
+						h6='Product: ' + result.product_types
+						h6='Hazard: ' + result.hazards
+						a(href=result.recall_url)
+							h6=result.recall_url
+			if result.organization === 'FDA'
+				div.panel.panel-default
+					div.panel-body
+						img.image(src='images/FDA.jpg' class='img-responsive' alt='Responsive image')
+						h3=result.summary
+						h6=result.recall_date
+						h6: em=result.description
+						a(href=result.recall_url)
+							h6=result.recall_url
+			if result.organization === 'USDA'
+				div.panel.panel-default
+					div.panel-body
+						img.image(src='images/USDA.jpeg' class='img-responsive' alt='Responsive image')
+						h3=result.summary
+						h6=result.recall_date
+						h6: em=result.description
+						a(href=result.recall_url)
+							h6=result.recall_url
+
+	//- Navbar Bottom
+	nav.navbar.navbar-default.navbar-fixed-bottom(role="navigation")
+		.container-fluid
+			ul.nav.navbar-nav.navbar-left.navbar-bottom
+				li
+					a About
+				li
+					a FAQ
+				li
+					a Contact
+				li
+					a Privacy
+				li
+					a Connect | <i class="fa fa-angellist"> <i class="fa fa-github"> <i class="fa fa-stack-overflow"> <i class="fa fa-twitter"> <i class="fa fa-facebook"> <i class="fa fa-linkedin-square"> <i class="fa fa-reddit">

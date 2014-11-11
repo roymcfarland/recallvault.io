@@ -73,4 +73,11 @@ $(document).on('ready', function(){
 		})
 	});
 
+	/**
+	 * Return user @ homepage
+	 */
+	$(document).on('click', '.navbar-brand', function(){
+		window.location.replace('/');
+	});
+
 });

@@ -14,6 +14,46 @@
 	margin-top: 20%;
 }
 
+.form-search {
+	float: left;
+	height: 33px;
+	margin: 7px 15px 0 0;
+	font-size: 12px;
+	width: 221px;
+	position: relative;
+}
+
+.resultsList {
+	padding: 40px 0 0 0;
+}
+
+.search-input {
+	display: block;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	width: 100%;
+	height: 32px;
+	padding: 5px 27px 6px 12px;
+	font-size: 12px;
+	line-height: 1;
+	color: #292f33;
+	background-color: #fff;
+	border: 1px solid #e1e8ed;
+	border-radius: 21px;
+	transition: all .2s ease-in-out;
+}
+
+.search-icon {
+	position: absolute;
+	top: 6px;
+	right: -3px;
+	display: block;
+	width: 26px;
+	height: 26px;
+	cursor: pointer;
+	color: #428BCA;
+}
+
 .jumbotron {
 	background: url('images/factory2-bw.jpg') no-repeat center center;
 	-webkit-background-size: cover;
@@ -45,10 +85,6 @@
 
 .toHide {
 	color: black;
-}
-
-#product-list {
-
 }
 	
 #product-container {
