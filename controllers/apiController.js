@@ -30,7 +30,7 @@ var apiController = {
 		})
 	},
 	// Handler that adds new products
-	// to a users library of products
+	// to a user's library of products
 	addProduct: function(req, res){
 		// This came from the $.post on the client-side
 		var productData = req.body;
@@ -55,34 +55,19 @@ var apiController = {
 			});
 		});
 	},
+	// Handler that removes products from
+	// a user's library of products
 	removeProduct: function(req, res){
-		// console.log('req.params.id', req.params.id);
-		// console.log("req.user:", req.user);
-		// console.log(new mongoose.Schema.Types.ObjectId(req.params.id));
-		// var filtered = req.user.products.filter(function(productId){
-		// 	console.log(productId.valueOf(), req.params.id);
-		// 	return productId.toString() !== req.params.id;
-		// });
-		// console.log(req.user.products);
-		// console.log(filtered);
-		// req.user.products = filtered;
-		// req.user.save(function(err, result){
-		// 	res.send(err);
-		// });
 		User.update({_id: req.user._id}, {
 			$pull: {products: req.params.id}},
 			function(err, doc) {
 				res.send(err)
 			})
-		// var productId = req.body.id;
-		// var index = req.user.products.indexOf(productId);
-
-		// req.user.products.splice(index, 1);
-		// req.user.save(function(err, doc){
-		// 	res.send.statusCode(200);
-		// });
 	}
 };
+
+// Calling these functions activates the XML/RSS 
+// data scraper and parses the XML to JSON
 
 // apiController.rssScraper();
 // setInterval(apiController.rssScraper, 10000);

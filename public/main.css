@@ -2,6 +2,14 @@
 	margin-bottom: -20px;
 }
 
+.navbar-brand img {
+	max-height: 45px;
+}
+
+.navbar-brand a {
+	margin-left: 15px;
+}
+
 #search-form {
 	margin-top: 20%;
 }
@@ -13,6 +21,10 @@
 	-o-background-size: cover;
 	background-size: cover;
 	padding: 175px 0px;
+}
+
+.thumbnail-row {
+	padding-top: 30px;
 }
 
 .title-thumb {

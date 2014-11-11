@@ -26,7 +26,7 @@ $(document).on('ready', function(){
 
 	$('#new-product').on('submit', function(e){
 		e.preventDefault();
-
+		$('#new-product-modal').modal('hide');
 		// Pull out the values from the form fields manually
 		var productManufacturer  = $(this).find('[name=manufacturer]').val();
 		var productName = $(this).find('[name=product]').val();
