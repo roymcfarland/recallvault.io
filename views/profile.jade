@@ -1,6 +1,7 @@
 extends layout
 
 block content
+	//- Navbar Top
 	nav.navbar.navbar-default(role='navigation')
 		.navbar-header
 			.container-fluid
@@ -17,35 +18,38 @@ block content
 						a No user exists
 				else 
 					li
-						a Welcome #{user.username}
-				li
-					a(data-toggle="modal", data-target="#new-product-modal") Add to Library
+						a Welcome, #{user.username}!
+				//- li
+				//- 	a(data-toggle="modal", data-target="#new-product-modal") Add to Library
 				li
 					a(href='/auth/logout') Logout
 
-	.container
-		#search-form.row
-			form.col-sm-6.col-sm-offset-3(action="/search", method="post", role="form")
-				.form-group
-					input.form-control(type="text", name="searchterm", placeholder="Search Term(s)")
-				.form-group.text-right
-					button.btn.btn-primary<span class="glyphicon glyphicon-search"></span> Submit
+	//- Sidebar
+	.container-fluid
+			#product-library.col-sm-3.sidebar
+				ul.nav.nav-sidebar
+					li
+						a My Product Library
+					for product in user.products
+						li
+							a= '- ' + product.manufacturer + ' ' + product.product
+					li
+						a(data-toggle="modal", data-target="#new-product-modal") + Add New Product
+	//- Search box
+	#search-form.col-sm-6
+		form(action="/search", method="post", role="form")
+			.form-group
+				input.form-control(type="text", name="searchterm", placeholder="Search Term(s)")
+			.form-group.text-right
+				button.btn.btn-primary<span class="glyphicon glyphicon-search"></span> Submit
 
-	//- h6: em #{user}
-	
-	//- h3 Product List
-	
-	//- //- Placeholder for where products go 
-	//- ul#product-list
-
-	//- //- Add Products
-	//- form#new-product
-	//- 	input(type="text", name="manufacturer", placeholder="manufacturer")
-	//- 	input(type="submit")
 
 
-	for product in user.products
-		h3= product
+	//- h3 My Product Library
+
+	//- for product in user.products
+	//- 	h5= product.manufacturer
+	//- 	h5= product.product
 
 	//- Modal for adding new products to user library
 	#new-product-modal.modal.fade
@@ -63,10 +67,11 @@ block content
 						.form-group
 							input.form-control.btn.btn-success(type="submit")
 
+	//- Navbar Bottom
 	nav.navbar.navbar-default.navbar-fixed-bottom(role="navigation")
 		.container-fluid
 			.navbar-footer
-				ul.nav.navbar-nav.navbar-left
+				.nav.navbar-nav.navbar-left.navbar-bottom
 					li
 						a About
 					li
@@ -75,3 +80,5 @@ block content
 						a Contact
 					li
 						a Privacy
+					li
+						a Connect | <i class="fa fa-angellist"> <i class="fa fa-github"> <i class="fa fa-stack-overflow"> <i class="fa fa-twitter"> <i class="fa fa-facebook"> <i class="fa fa-linkedin-square"> <i class="fa fa-reddit">
