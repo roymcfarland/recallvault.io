@@ -1,3 +1,4 @@
+var deleteSpan = $('<span class="deleteProduct glyphicon glyphicon-remove"></span>');
 var renderProduct = function(productData){
 
 	// Generate a new Product item via jQuery
@@ -6,19 +7,14 @@ var renderProduct = function(productData){
 	// Set an attribute on the main containing
 	// <li> that will let us access the product's
 	// specific database ID
-	el.attr('data-id', productData._id);
-
+	el.attr('data-id', productData._id).addClass('product-container-new');
+	// el.addClass('product-container-new');
+	
 	// Append elements to the <li>
-	el.append('- ' + productData.manufacturer + ' ' + productData.product + '<span class="deleteProduct glyphicon glyphicon-remove></span>');
+	var deleteButton = deleteSpan.clone();
 
-	// Append some action items to this track
-	el.append('<button class="btn btn-danger delete">Delete</button>');
-	// <a href="/view/myidhere">View</a>
-	// el.append('<a class="btn btn-info" href="/view/' + trackData._id + '">View</a>');
-	// Add an edit button too
-	el.append('<button class="btn btn-success edit">Edit</button>');
-
-	// Give the new element back to the caller
+	el.append('<a>').text('- ' + productData.manufacturer + ' ' + productData.product + ' ').append(deleteButton);
+	
 	return el;
 };
 
@@ -36,10 +32,6 @@ $(document).on('ready', function(){
 			manufacturer: productManufacturer,
 			product: productName
 		};
-
-		// Print the trackData object to browser
-		// console for debugging purposes
-		console.log(productData);
 
 		// Make a POST request to the server and send
 		// it the trackData object

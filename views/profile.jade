@@ -19,14 +19,12 @@ block content
 				else 
 					li
 						a Welcome, #{user.username}!
-				//- li
-				//- 	a(data-toggle="modal", data-target="#new-product-modal") Add to Library
 				li
 					a(href='/auth/logout') Logout
 
 	//- Sidebar
 	.container-fluid
-			#product-container.col-sm-3.sidebar
+			.product-container.col-sm-3.sidebar
 				ul#product-list.nav.nav-sidebar
 					li
 						a My Product Library

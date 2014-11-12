@@ -87,12 +87,22 @@
 	color: black;
 }
 	
-#product-container {
+.product-container {
 	position: fixed;
 	top: 51px;
 	bottom: 0;
 	left: 0;
 	display: block;
+	padding: 20px;
+	background-color: #f5f5f5;
+	border-right: 1px solid #eee;
+}
+
+.product-container-new {
+	top: -13px;
+	bottom: 0;
+	left: -4px;
+	color: #428BCA;
 	padding: 20px;
 	background-color: #f5f5f5;
 	border-right: 1px solid #eee;
