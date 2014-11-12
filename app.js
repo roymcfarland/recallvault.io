@@ -22,7 +22,7 @@ var apiController = require('./controllers/apiController.js');
 var authenticationController = require('./controllers/authentication.js');
 
 // Database connection
-mongoose.connect('mongodb://localhost/recallVault');
+mongoose.connect(process.env.MONGOLAB_URI || 'mongodb://localhost/recallVault');
 
 // Express setup
 var app = express();
