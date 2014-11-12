@@ -58,7 +58,8 @@ app.post('/api/addProduct', apiController.addProduct);
 app.delete('/api/removeProduct/:id', apiController.removeProduct);
 app.get('/auth/logout', authenticationController.logout);
 
-
-var server = app.listen(7398, function() {
+// Setup for Heroku
+var port = process.env.PORT || 7398;
+var server = app.listen(port, function() {
 	console.log('Express server listening on port ' + server.address().port);
 });
