@@ -10,13 +10,16 @@ var apiController = {
 	// REST API and return Page 1 of search results
 	search: function(req, res) {
 		var searchTerm = req.body.searchterm;
+			if (searchTerm == '') {
+				res.redirect('https://www.youtube.com/watch?v=k5NlwiSPXao');
+			} else {
 		recollie(searchTerm, function(results){
 			var resultList = results.success;
 			var listofResults = resultList.results;
 			res.render('search', {
 				results: listofResults
 			});
-		});
+		})};
 	},
 	// Handler that scrapes data from federal government 
 	// XML/RSS feed of updated recall notices and returns

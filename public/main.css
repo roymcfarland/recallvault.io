@@ -71,20 +71,16 @@
 	color: #428BCA;
 }
 
-.navbar-fixed-bottom {
-	padding-top: 2%;
+.connect-social {
+	padding-top: 15px;
 }
 
-.navbar-bottom {
-	margin-bottom: 35px;
+.entrepreneurialByNature {
+	padding-bottom: 15px;
 }
 
 .image {
 	width: 100px;
-}
-
-.toHide {
-	color: black;
 }
 	
 .product-container {
@@ -108,7 +104,10 @@
 	border-right: 1px solid #eee;
 }
 
-
 #search-form {
 	margin-left: 40%;
+}
+
+body {
+	padding-bottom: 200px;
 }
